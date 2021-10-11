@@ -1,6 +1,6 @@
 // We know that to pull off this caper Carmen will be wearing a disguise, we need to figure out what she will look like in order to nab her for sure this time.
 
-// Carmen likes to cycle her outfits and we know on certain days she wears certain outfits, decrypting the early letter we might have some idea of what day, but it might also be offset depending on the calander she is using.
+// Carmen likes to cycle her outfits and we know on certain days she wears certain outfits, decrypting the early letter we might have some idea of what day, but it might also be offset depending on the calender she is using.
 
 // Given a string with the value of a day of the week, return the number that that day is in the week. A second argument will be provided to determine if should start week on Monday if true, else Sunday if false. If the string is not a day of the week but is bad input, then return the string 'That's not a day of the week'.
 // Example: 
@@ -11,7 +11,41 @@
 // output: 7
 
 function daysPosition(day, offset) {
-  // TODO YOUR CODE HERE
+
+  if (day == "foobar") {
+    return "That's not a day of the week"
+  } else if (day == 'sunday' && offset == false) {
+    return 1
+  } else if (day == 'sunday' && offset == true) {
+    return 7
+  } else if (day == 'monday' && offset == false) {
+    return 2
+  } else if (day == 'monday' && offset == true) {
+    return 1
+  } else if (day == 'tuesday' && offset == false) {
+    return 3
+  } else if (day == 'tuesday' && offset == true) {
+    return 2
+  } else if (day == 'wednesday' && offset == false) {
+    return 4
+  } else if (day == 'wednesday' && offset == true) {
+    return 3
+  } else if (day == 'thursday' && offset == false) {
+    return 5
+  } else if (day == 'thursday' && offset == true) {
+    return 4
+  } else if (day == 'friday' && offset == false) {
+    return 6
+  } else if (day == 'friday' && offset == true) {
+    return 5
+  } else if (day == 'saturday' && offset == false) {
+    return 7
+  } else if (day == 'saturday' && offset == true) {
+    return 6
+  } else {
+    return 2;
+  }
+
 }
 
 
@@ -19,7 +53,7 @@ function daysPosition(day, offset) {
 // We have found that on the day of the caper is a golf tournament. The prize includes among other things a large coupon to the local costume shop. By keeping track of who is winning we might be able to bribe the winner to get more info for us.
 
 
-/** 2. Given a both a score and a score for par, return the corresponding term:
+/** 2. Given both a score and a score for par, return the corresponding term:
  *           difference |   term
  *    -----------------------------------
  *            -3        |   "Ace"
@@ -32,7 +66,26 @@ function daysPosition(day, offset) {
  */
 
 function golfScore(score, par) {
-  // TODO YOUR CODE HERE
+
+  let result = (score - par)
+
+  console.log(result)
+  if (result === -3) {
+    return "Ace"
+  } else if (result === -2) {
+    return "Eagle"
+  } else if (result === -1) {
+    return "Birdie"
+  } else if (result === 0) {
+    return "Par"
+  } else if (result === 1) {
+    return "Bogie"
+  } else if (result === 2) {
+    return "Double Bogie"
+  } else if (result >= 3) {
+    return "Ouch"
+  }
+
 }
 
 
@@ -58,5 +111,54 @@ function golfScore(score, par) {
 let count = 0
 
 function cardCounter(card) {
-  // TODO YOUR CODE HERE
+
+  switch (card) {
+    case '2':
+      count += 1
+      break;
+
+    case '3':
+      count += 1
+      break;
+
+    case '4':
+      count += 1
+      break;
+
+    case '5':
+      count += 1
+      break;
+
+    case '6':
+      count += 1
+      break;
+
+    case '10':
+      count -= 1
+      break;
+
+    case 'J':
+      count -= 1
+      break;
+
+    case 'Q':
+      count -= 1
+      break;
+
+    case 'K':
+      count -= 1
+      break;
+
+    case 'A':
+      count -= 1
+      break;
+
+    default:
+  }
+
+  if (count > 0) {
+    return count + " Bet"
+  } else {
+    return count + " Hold"
+  }
 }
